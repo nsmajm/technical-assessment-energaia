@@ -17,6 +17,8 @@ from a supplier and In supplier page, they can see all the products they had to 
 Create a mysql database named "db_inventory_supply" & run the following command.
 ```bash
 composer install
+npm install
+npm run dev
 php artisan migrate
 php artisan db:seed
 php artisan serve
