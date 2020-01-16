@@ -38,4 +38,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the products supplied by a supplier
+     */
+    public function suppliedProducts()
+    {
+        return $this->hasMany('App\Product');
+    }
 }
