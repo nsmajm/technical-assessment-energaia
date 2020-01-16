@@ -11,6 +11,6 @@ $factory->define(Product::class, function (Faker $faker) {
          'product_name' => $faker->name, /* well, let's assume */
          'quantity' => rand(1, 1000),
          'sku' => rand(100000,1000000),
-         'supplier_user_id' => 2 /* as creating for only one supplier */
+         'supplier_user_id' => rand(1, 2) /* as creating for only one supplier */
     ];
 });

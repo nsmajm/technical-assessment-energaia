@@ -9,12 +9,25 @@ from a supplier and In supplier page, they can see all the products they had to 
 
 
 #### Solution
+User can have two roles (company-user, supplier user). When any type of user will sign in, they will see their corresponding
+dashboard.
+
+Company user credentials:
+```
+Email: user@company.com
+Password: 123456
+```
+Supplier user credentials:
+ ```
+ Email: user@supplier-company.com
+ Password: 123456
+ ```
+
 ##### Technology
 * Laravel 6.2
 * MySQL
 
 ##### Setup & run (development)
-Create a mysql database named "db_inventory_supply" & run the following command.
 ```bash
 composer install
 npm install

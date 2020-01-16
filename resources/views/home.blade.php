@@ -20,7 +20,26 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                     <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>Product name</th>
+                            <th>SKU</th>
+                            <th>Quantity</th>
+                            <th>Supplier name</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          @foreach($products as $product)
+                            <tr>
+                                <td>{{ $product->product_name }}</td>
+                                <td>{{ $product->sku }}</td>
+                                <td>{{ $product->quantity }}</td>
+                                <td>{{ $product->user->name }}</td>
+                              </tr>
+                          @endforeach
+                        </tbody>
+                     </table>
                 </div>
             </div>
         </div>

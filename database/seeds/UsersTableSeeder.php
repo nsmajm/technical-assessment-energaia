@@ -14,22 +14,13 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        /*DB::table('users')->insert([
-            'name' => 'Company User',
-            'email' => 'user@company.com',
-            'password' => Hash::make('123456'),
-        ]);*/
         $companyUser = User::create([
             'name' => 'Company User',
             'email' => 'user@company.com',
             'password' => Hash::make('123456')
         ]);
         $companyUser->assignRole('company-user');
-        /*DB::table('users')->insert([
-            'name' => 'Supplier User',
-            'email' => 'user@supplier-company.com',
-            'password' => Hash::make('123456'),
-        ]);*/
+
         $supplierUser = User::create([
             'name' => 'Supplier User',
             'email' => 'user@supplier-company.com',

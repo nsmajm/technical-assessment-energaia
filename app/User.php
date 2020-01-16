@@ -40,10 +40,10 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the products supplied by a supplier
+     * Get the products supplied by this supplier user
      */
     public function suppliedProducts()
     {
-        return $this->hasMany('App\Product');
+        return $this->hasMany('App\Product', 'supplier_user_id');
     }
 }

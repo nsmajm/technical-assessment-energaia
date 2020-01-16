@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $products;
+        if (auth()->user()->hasRole('company-user')) {
+            $products = Product::all()->reject(function($product){
+                // keep only products from supplier user [sanity check]
+                return $product->user->hasRole('supplier-user') == false;
+            });
+        } else if(auth()->user()->hasRole('supplier-user')) {
+            /**
+            * `In supplier page, they can see all the products they had to send to the company`
+            * implies => load only logged in users supplied products
+            */
+            $products = auth()->user()->suppliedProducts()->get();
+        }
+        return view('home')->with('products', $products);
     }
 }
